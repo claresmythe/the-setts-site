@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Setts</title>
+
+    <style>
+        @font-face {
+            font-family: 'Knockout';
+            src: url('/Knockout HTF49-Liteweight-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Knockout', Arial, sans-serif;
+            background-color: #E63223;
+            color: #FCEDD7;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #FCEDD7;
+            color: #E63223;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #191818;
+            color: #FCEDD7;
+        }
+
+        button:active {
+            background-color: #191818;
+            color: #FCEDD7;
+        }
+
+        a {
+            text-decoration: none;
+            color: #FCEDD7;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 200px 35px;
+            max-width: 1060px;
+        }
+
+        .logo {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .logo g[id^="slot-"] {
+            pointer-events: all;
+        }
+
+        .links {
+            margin-top: clamp(20px, 11.44vw, 121px);
+            font-size: clamp(20px, 4.72vw, 50px);
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 100vh;
+            }
+
+            .container {
+                padding: 20px 20px;
+
+            }
+
+            .links {
+                margin-top: 60px;
+                font-size: 30px;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <svg class="logo" id="animation" viewBox="0 0 848 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <symbol id="g-0" viewBox="0 0 72 167" preserveAspectRatio="none">
+                    <path
+                        d="M71.8959 130.172C71.8959 151.98 57.5167 166.839 35.948 166.839C14.1395 166.839 0 151.98 0 130.172V37.9054C0 15.8574 14.1395 1.23853 35.948 1.23853C57.5167 1.23853 71.8959 15.8574 71.8959 37.9054V130.172ZM43.6168 131.849V35.9882C43.6168 31.9141 40.741 28.7986 35.948 28.7986C30.9152 28.7986 28.0394 31.9141 28.0394 35.9882V131.849C28.0394 135.924 30.9152 139.039 35.948 139.039C40.741 139.039 43.6168 135.924 43.6168 131.849Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-1" viewBox="0 0 64 167" preserveAspectRatio="none">
+                    <path
+                        d="M53.2791 163.725H25V16.8173C34.1068 16.8173 37.2224 10.826 37.2224 4.11572H53.2791V163.725Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-2" viewBox="0 0 71 167" preserveAspectRatio="none">
+                    <path
+                        d="M70.6977 39.3445C70.6977 60.4339 65.1857 74.8131 47.4514 98.5388C34.7498 119.868 31.8739 128.256 31.8739 136.883H69.7391V163.724H0V156.774C0 133.768 5.51213 118.67 27.0809 83.9199C40.0222 63.7891 44.3358 53.0047 44.3358 37.6669C44.3358 30.717 41.2204 28.0808 36.1877 28.0808C30.6756 28.0808 28.0394 31.6756 28.0394 37.6669V56.1202H2.39649V35.2704C2.39649 18.255 13.6603 1 35.4687 1C61.3512 1 70.6977 18.255 70.6977 39.3445Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-3" viewBox="0 0 69 167" preserveAspectRatio="none">
+                    <path
+                        d="M69.2597 131.851C69.2597 152.461 54.641 166.84 32.8325 166.84C11.0241 166.84 0 149.585 0 132.569V115.314H25.8826V130.413C25.8826 136.164 28.7584 139.28 33.5515 139.28C38.3445 139.28 41.2203 136.164 41.2203 131.371V100.935C41.2203 96.6216 39.0635 94.7043 35.4687 94.7043H24.9239V71.9373H35.4687C39.0635 71.9373 41.2203 70.0201 41.2203 65.946V36.4686C41.2203 31.6756 38.3445 28.5601 33.5515 28.5601C28.7584 28.5601 25.8826 31.6756 25.8826 37.4273V52.765H0V35.2704C0 18.255 11.0241 1 32.8325 1C54.641 1 69.2597 15.3792 69.2597 35.9893V59.2357C69.2597 71.2183 63.2685 79.8458 53.4427 82.7217C63.0288 86.3165 69.2597 94.225 69.2597 106.208V131.851Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-4" viewBox="0 0 75 167" preserveAspectRatio="none">
+                    <path
+                        d="M74.7718 131.851H65.1856V163.725H38.5842V131.851H0V110.761L41.2203 4.11572H65.1856V108.125H74.7718V131.851ZM38.5842 108.125V67.8634L24.205 108.125H38.5842Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-5" viewBox="0 0 69 167" preserveAspectRatio="none">
+                    <path
+                        d="M69.2597 4.11572C68.0614 23.0483 63.0286 30.9569 53.4425 30.9569H28.998L27.0807 68.1031C31.8738 61.8721 39.0633 58.7566 47.4512 58.7566C60.3925 58.7566 69.2597 69.0617 69.2597 83.6805V131.851C69.2597 152.461 54.6408 166.84 32.8323 166.84C11.2636 166.84 0 149.585 0 132.57V116.273H25.8824V130.413C25.8824 136.165 28.9979 139.28 33.5513 139.28C38.3443 139.28 41.2202 136.165 41.2202 131.371V88.9529C41.2202 84.6391 37.8651 81.284 34.5099 81.284C30.9151 81.284 27.56 84.3995 27.56 87.7546L1.91709 85.1184L5.75162 4.11572H69.2597Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-6" viewBox="0 0 71 167" preserveAspectRatio="none">
+                    <path
+                        d="M70.6976 129.694C70.6976 151.502 57.0373 166.84 35.4685 166.84C13.6601 166.84 0 151.502 0 129.694V38.1462C0 16.5774 14.1395 1 35.7082 1C57.5167 1 69.2597 18.255 69.2597 35.2704V52.5254H44.0961V37.4273C44.0961 31.6756 41.46 28.5601 36.1877 28.5601C30.6756 28.5601 28.0394 31.4359 28.0394 36.229V76.0114C31.8738 70.9787 37.8652 66.9046 46.972 66.9046C62.0701 66.9046 70.6976 77.2097 70.6976 91.5888V129.694ZM42.8979 132.569V95.6629C42.8979 91.8285 40.022 88.9527 35.4685 88.9527C30.6755 88.9527 28.0394 91.8285 28.0394 95.6629V132.569C28.0394 136.404 30.6755 139.28 35.4685 139.28C40.022 139.28 42.8979 136.404 42.8979 132.569Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-7" viewBox="0 0 70 167" preserveAspectRatio="none">
+                    <path
+                        d="M69.7389 16.338C51.046 63.7893 41.4599 107.885 40.022 163.725H8.38782C10.7843 114.835 26.1221 62.8307 41.4599 32.3948H0V4.11572H69.7389V16.338Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-8" viewBox="0 0 72 167" preserveAspectRatio="none">
+                    <path
+                        d="M72.1356 131.851C72.1356 152.461 57.7564 166.84 36.1877 166.84C14.3792 166.84 0 152.461 0 131.851V106.447C0 95.9026 4.31375 87.2751 11.9826 83.201C4.31375 79.3665 0 70.739 0 60.1943V35.9893C0 15.3792 14.3792 1 36.1877 1C57.7564 1 72.1356 15.3792 72.1356 35.9893V60.1943C72.1356 70.739 67.8219 79.3665 60.153 83.201C67.8219 87.2751 72.1356 95.9026 72.1356 106.447V131.851ZM44.0962 67.3839V36.4686C44.0962 31.6756 40.7411 28.5601 36.1877 28.5601C31.3946 28.5601 28.0394 31.6756 28.0394 36.4686V67.3839C28.0394 71.9373 31.3946 75.2924 36.1877 75.2924C40.7411 75.2924 44.0962 71.9373 44.0962 67.3839ZM44.0962 131.371V99.2577C44.0962 94.4647 40.7411 91.3492 36.1877 91.3492C31.3946 91.3492 28.0394 94.4647 28.0394 99.2577V131.371C28.0394 136.164 31.3946 139.28 36.1877 139.28C40.7411 139.28 44.0962 136.164 44.0962 131.371Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-9" viewBox="0 0 71 167" preserveAspectRatio="none">
+                    <path
+                        d="M70.6977 129.693C70.6977 151.501 55.8391 166.839 34.0307 166.839C12.4619 166.839 0 149.584 0 132.568V117.47H24.9239V130.172C24.9239 135.924 27.3205 139.279 33.5515 139.279C40.2617 139.279 42.8979 135.924 42.8979 131.13V93.7446C38.8238 98.7773 32.8324 102.851 23.7256 102.851C8.62746 102.851 0 92.3067 0 77.9275V38.1451C0 16.5763 13.6601 1.23853 35.4685 1.23853C57.0373 1.23853 70.6977 16.5763 70.6977 38.1451V129.693ZM42.8979 74.812V35.5089C42.8979 31.6745 40.022 28.559 35.4685 28.559C30.6755 28.559 27.7997 31.6745 27.7997 35.5089V74.812C27.7997 78.6465 30.6755 81.5223 35.4685 81.5223C40.022 81.5223 42.8979 78.6465 42.8979 74.812Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-A" viewBox="0 0 82 167" preserveAspectRatio="none">
+                    <path
+                        d="M81.7217 163.725H50.8064L48.6496 138.082H30.4359L27.7997 163.725H0L23.2463 4.11572H58.715L81.7217 163.725ZM46.0134 113.158L40.741 51.0877L33.7911 113.158H46.0134Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-B" viewBox="0 0 73 167" preserveAspectRatio="none">
+                    <path
+                        d="M73.0942 134.008C73.0942 155.337 58.715 163.725 43.6168 163.725H0V4.11572H43.6168C58.715 4.11572 73.0942 12.7432 73.0942 33.8327V60.4342C73.0942 70.0203 69.4994 79.1271 58.4753 82.4823C69.0201 86.5564 73.0942 94.4649 73.0942 104.53V134.008ZM44.0962 64.9876V37.1878C44.0962 31.9155 41.9393 29.9982 38.5841 29.9982H30.9152V72.1772H38.5841C41.9393 72.1772 44.0962 70.0203 44.0962 64.9876ZM44.0962 130.892V102.134C44.0962 97.1011 41.9393 94.9442 38.5841 94.9442H30.9152V138.082H38.5841C41.9393 138.082 44.0962 136.165 44.0962 130.892Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-C" viewBox="0 0 75 167" preserveAspectRatio="none">
+                    <path
+                        d="M75.4907 129.933C75.4907 151.742 62.0701 166.84 40.0221 166.84C17.4947 166.84 0 151.262 0 128.495V39.3445C0 16.5774 17.4947 1 40.0221 1C62.0701 1 75.4907 16.0981 75.4907 37.9066V62.1115H48.6496V37.4273C48.6496 32.6342 46.0134 29.0394 40.0221 29.0394C34.2704 29.0394 31.3945 32.6342 31.3945 37.4273V130.413C31.3945 135.206 34.2704 138.8 40.0221 138.8C46.0134 138.8 48.6496 135.206 48.6496 130.413V105.489H75.4907V129.933Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-D" viewBox="0 0 76 167" preserveAspectRatio="none">
+                    <path
+                        d="M76.4493 128.496C76.4493 152.461 60.6322 163.725 39.7824 163.725H0V4.11572H39.7824C60.6322 4.11572 76.4493 17.2966 76.4493 41.2619V128.496ZM45.7737 127.058V41.0223C45.7737 34.312 43.1375 30.7172 37.1462 30.7172H30.9152V137.123H37.1462C43.1375 137.123 45.7737 133.768 45.7737 127.058Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-E" viewBox="0 0 65 167" preserveAspectRatio="none">
+                    <path
+                        d="M64.9459 163.725H0V4.11572H64.9459V31.1965H30.6756V69.3013H53.203V94.2253H30.6756V135.685H64.9459V163.725Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-Ealt" viewBox="0 0 65 167" preserveAspectRatio="none">
+                    <path
+                        d="M-0.0399895 4.11579L65 4.1158L65 163.956L-0.0400034 163.956L-0.0400011 136.836L34.28 136.836L34.28 98.6758L11.72 98.6758L11.72 73.7158L34.28 73.7158L34.28 32.1958L-0.0399919 32.1958L-0.0399895 4.11579Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-F" viewBox="0 0 63 167" preserveAspectRatio="none">
+                    <path
+                        d="M63.0287 30.2379H30.6756V70.0203H53.6823V96.1425H30.6756V163.725H0V4.11572H63.0287V30.2379Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-G" viewBox="0 0 77 167" preserveAspectRatio="none">
+                    <path
+                        d="M77.4079 163.723H59.6736L56.5581 152.939C52.2444 161.806 43.1375 166.839 34.0307 166.839C13.1809 166.839 0 151.741 0 130.891V36.9468C0 18.0142 15.8171 1.23853 38.5842 1.23853C61.3512 1.23853 76.2097 18.0142 76.2097 36.9468V63.3086H47.2117V36.4675C47.2117 31.9141 44.3358 29.0383 39.0635 29.0383C34.0308 29.0383 31.1549 31.9141 31.1549 36.4675V132.089C31.1549 136.642 34.2704 139.998 39.3031 139.998C44.5754 139.998 47.6909 136.642 47.6909 132.089V105.967H39.5427V84.3981H77.4079V163.723Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-H" viewBox="0 0 79 167" preserveAspectRatio="none">
+                    <path
+                        d="M79.0855 163.725H48.4099V100.217H30.9152V163.725H0V4.11572H30.9152V71.9375H48.4099V4.11572H79.0855V163.725Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-I" viewBox="0 0 31 167" preserveAspectRatio="none">
+                    <path d="M30.9153 163.725H0V4.11572H30.9153V163.725Z" fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-J" viewBox="0 0 74 167" preserveAspectRatio="none">
+                    <path
+                        d="M74.0528 130.653C74.0528 151.982 58.4754 166.84 36.9066 166.84C15.3378 166.84 0 151.982 0 130.653V100.217H28.998V131.851C28.998 136.165 32.1135 138.801 36.1876 138.801C40.2617 138.801 43.3772 136.165 43.3772 131.851V4.11572H74.0528V130.653Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-K" viewBox="0 0 80 167" preserveAspectRatio="none">
+                    <path
+                        d="M80.0441 163.725H49.1288L37.3858 101.654L30.9153 123.463V163.725H0V4.11572H30.9153V73.6151L48.4099 4.11572H78.3665L58.9546 71.2186L80.0441 163.725Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-L" viewBox="0 0 63 167" preserveAspectRatio="none">
+                    <path d="M63.0288 163.725H0V4.11572H30.6756V136.404H63.0288V163.725Z" fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-N" viewBox="0 0 80 167" preserveAspectRatio="none">
+                    <path
+                        d="M80.0441 163.725H54.6409L34.2704 98.2994L27.0808 76.0116V163.725H0V4.11572H28.2791L46.7324 69.541L53.203 92.0684V4.11572H80.0441V163.725Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-O" viewBox="0 0 77 167" preserveAspectRatio="none">
+                    <path
+                        d="M77.4079 129.932C77.4079 151.741 60.3925 166.839 38.8238 166.839C17.0153 166.839 0 151.741 0 129.932V37.9054C0 16.097 17.0153 1.23853 38.8238 1.23853C60.3925 1.23853 77.4079 16.097 77.4079 37.9054V129.932ZM46.0133 131.849V35.9882C46.0133 31.6745 42.8979 29.0383 38.8238 29.0383C34.7497 29.0383 31.3945 31.6745 31.3945 35.9882V131.849C31.3945 136.163 34.7497 138.799 38.8238 138.799C42.8979 138.799 46.0133 136.163 46.0133 131.849Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-P" viewBox="0 0 73 167" preserveAspectRatio="none">
+                    <path
+                        d="M73.0941 71.6979C73.0941 93.9856 58.9547 103.572 42.8979 103.572H30.9153V163.725H0V4.11572H42.8979C58.9547 4.11572 73.0941 13.7018 73.0941 35.9896V71.6979ZM44.0962 72.8961V37.1878C44.0962 31.9155 41.9393 29.9982 38.5841 29.9982H30.9153V79.8461H38.5841C41.9393 79.8461 44.0962 77.9289 44.0962 72.8961Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-Q" viewBox="0 0 85 167" preserveAspectRatio="none">
+                    <path
+                        d="M85.3164 163.723C82.4406 165.64 78.8458 166.839 73.0942 166.839C66.6235 166.839 60.8719 163.484 57.7564 159.889C52.7237 163.963 46.253 166.839 36.6669 166.839C16.7757 166.839 0 151.741 0 129.932V38.1451C0 16.3367 17.0153 1.23853 38.8238 1.23853C60.3925 1.23853 77.4079 16.3367 77.4079 38.1451V128.015C77.4079 132.808 76.6889 137.122 75.251 140.477C76.9286 142.394 79.0854 143.113 85.3164 143.113V163.723ZM46.0133 120.825V35.9882C46.0133 31.6745 42.8979 29.0383 38.8238 29.0383C34.7497 29.0383 31.3945 31.6745 31.3945 35.9882V131.849C31.3945 136.163 34.7497 138.799 38.8238 138.799C40.2617 138.799 41.9393 138.56 43.1375 137.601L37.3858 132.089L46.0133 120.825Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-R" viewBox="0 0 78 167" preserveAspectRatio="none">
+                    <path
+                        d="M77.8872 163.725H52.0047C47.2116 163.725 44.5755 149.106 44.5755 139.04V107.167C44.5755 103.092 42.4185 98.7787 38.1047 98.7787H30.9153V163.725H0V4.11572H42.6582C57.7563 4.11572 73.3338 13.7018 73.3338 35.031V66.9048C73.3338 74.8134 68.5407 82.0029 60.6322 86.5564C68.5407 90.8701 73.8132 98.2994 73.8132 106.208V137.123C73.8132 147.189 75.7304 155.337 77.8872 163.006V163.725ZM43.8565 67.8634V37.1878C43.8565 31.9155 41.9393 29.9982 38.5842 29.9982H30.9153V75.053H38.5842C41.9393 75.053 43.8565 73.1358 43.8565 67.8634Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-S" viewBox="0 0 75 167" preserveAspectRatio="none">
+                    <path
+                        d="M75.4907 126.577C75.4907 151.741 59.1943 166.839 37.8652 166.839C14.1396 166.839 0 152.939 0 129.213V115.313H26.6015V130.172C26.6015 136.642 29.9565 140.956 36.4272 140.956C42.6582 140.956 45.7736 137.122 45.7736 130.411C45.7736 117.47 38.1048 107.644 27.3204 94.2239C15.3378 80.8033 0.71893 61.6311 0.71893 41.7399C0.71893 19.9315 13.4206 1.23853 39.3031 1.23853C59.9132 1.23853 73.8132 16.097 73.8132 38.6244V52.5243H47.2117V36.7072C47.2117 30.9555 43.8565 27.6004 39.3031 27.6004C34.7497 27.6004 30.4359 30.7159 30.4359 36.9468C30.4359 52.2846 38.1047 58.9949 49.1288 73.6137C62.07 89.1912 75.4907 105.967 75.4907 126.577Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-T" viewBox="0 0 75 167" preserveAspectRatio="none">
+                    <path d="M74.7718 32.1551H52.7238V163.725H22.0482V32.1551H0V4.11572H74.7718V32.1551Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-U" viewBox="0 0 75 167" preserveAspectRatio="none">
+                    <path
+                        d="M75.0115 131.132C75.0115 151.263 59.6736 166.84 37.8652 166.84C16.5361 166.84 0 151.263 0 131.132V4.11572H30.9153V131.851C30.9153 136.165 34.0308 138.801 37.8652 138.801C42.179 138.801 45.2944 136.165 45.2944 131.851V4.11572H75.0115V131.132Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-V" viewBox="0 0 84 167" preserveAspectRatio="none">
+                    <path
+                        d="M83.6388 4.11572L56.3184 163.725H26.8412L0 4.11572H31.155L42.6582 104.77L54.4011 4.11572H83.6388Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-X" viewBox="0 0 85 167" preserveAspectRatio="none">
+                    <path
+                        d="M84.1181 163.725H52.7236L41.9393 113.877L29.2375 163.725H0L24.4445 84.3995L1.91709 4.11572H33.0721L43.3771 56.8394L55.839 4.11572H84.837L60.8717 80.3254L84.1181 163.725Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-Y" viewBox="0 0 86 167" preserveAspectRatio="none">
+                    <path
+                        d="M85.7958 4.11572L57.2771 98.7787V163.725H26.6015V98.7787L0 4.11572H30.9153L43.8565 63.7893L55.5995 4.11572H85.7958Z"
+                        fill="currentColor" />
+                </symbol>
+
+                <symbol id="g-Z" viewBox="0 0 72 167" preserveAspectRatio="none">
+                    <path
+                        d="M72.1354 12.5036L35.4685 135.925H70.4579V163.725H0V155.337L37.1461 31.1965H2.39649V4.11572H72.1354V12.5036Z"
+                        fill="currentColor" />
+                </symbol>
+
+            </defs>
+
+
+            <g id="slot-1" transform="translate(0 0)">
+                <use href="#g-T" width="75" height="167" />
+            </g>
+
+            <g id="slot-2" transform="translate(83 0)">
+                <use href="#g-H" width="79" height="167" />
+            </g>
+            <g id="slot-3" transform="translate(170 0)">
+                <use href="#g-Ealt" width="65" height="167" />
+            </g>
+            <g id="slot-4" transform="translate(288 0)">
+                <use href="#g-S" width="75" height="167" />
+            </g>
+            <g id="slot-5" transform="translate(370 0)">
+                <use href="#g-Ealt" width="65" height="167" />
+            </g>
+            <g id="slot-6" transform="translate(442 0)">
+                <use href="#g-T" width="75" height="167" />
+            </g>
+            <g id="slot-7" transform="translate(525 0)">
+                <use href="#g-T" width="75" height="167" />
+            </g>
+            <g id="slot-8" transform="translate(606 0)">
+                <use href="#g-S" width="75" height="167" />
+            </g>
+
+            <g id="slot-9" transform="translate(712 0)">
+                <use href="#g-E" width="29.580" height="76" />
+            </g>
+            <g id="slot-10" transform="translate(745.5 0)">
+                <use href="#g-S" width="34.131" height="76" />
+            </g>
+
+            <g id="slot-11" transform="translate(782 0)">
+                <use href="#g-T" width="34.131" height="76" />
+            </g>
+
+            <path d="M826.833 73.7664H816.497V59.7312H826.833V73.7664Z" fill="currentColor" />
+
+            <g id="slot-12" transform="translate(704 90)">
+                <use href="#g-1" width="30" height="76" />
+            </g>
+
+            <g id="slot-13" transform="translate(737 90)">
+                <use href="#g-8" width="32.766" height="76" />
+            </g>
+
+            <g id="slot-14" transform="translate(777 90)">
+                <use href="#g-9" width="32.311" height="76" />
+            </g>
+
+            <g id="slot-15" transform="translate(816 90)">
+                <use href="#g-3" width="31.401" height="76" />
+            </g>
+
+        </svg>
+        <div class="links">
+            <a href="https://www.instagram.com/thesettsmildura/" target="_blank">INSTAGRAM</a>
+            <a href="https://www.facebook.com/thesettsmildura/" target="_blank">FACEBOOK</a>
+            <a href="https://maps.app.goo.gl/YzYaYZFPsgw2nRtn6" target="_blank">ADDRESS</a>
+            <!-- <a href="#" target="_blank">BOOK ONLINE</a> -->
+        </div>
+    </div>
+
+    <script>
+        const glyphs = {};
+        const glyphNames = [];
+        const SLOTS_COUNT = 15;
+        const slots = [];
+        const startingGlyphs = [];
+        const scrambleInterval = 50;
+        const initialScramble = 600;
+        const touchStopInterval = 600;
+        let scrambleTimerId = null;
+        const slotHoverTimers = {};
+        const slotTouchTimers = {};
+
+        function init() {
+
+            // Get all the glyphs
+            const svgEl = document.getElementById("animation");
+            const glyphEls = svgEl.querySelectorAll("symbol");
+            glyphEls.forEach(glyphEl => {
+                const glyph = parseGlyph(glyphEl);
+                if (glyph) {
+                    glyphs[glyph.id] = glyph;
+                    glyphNames.push(glyph.id);
+                }
+            });
+
+            // Fetch all the slots
+            for (let i = 1; i <= SLOTS_COUNT; i++) {
+                const slot = parseSlot(`slot-${i}`);
+                if (slot) {
+                    slots.push(slot);
+                }
+            }
+
+            // Get the starting glyphs for each slot
+            slots.forEach(slot => {
+                startingGlyphs.push(slot.glyph);
+            });
+
+            // Automatically run scramble animation for initialScramble, then reset
+            scramble();
+            scrambleTimerId = window.setInterval(() => {
+                scramble();
+            }, scrambleInterval);
+
+            // Stop after initialScramble and reset
+            setTimeout(() => {
+                if (scrambleTimerId !== null) {
+                    window.clearInterval(scrambleTimerId);
+                    scrambleTimerId = null;
+                }
+                resetScramble();
+                setupSlotHoverHandlers();
+            }, initialScramble);
+        }
+
+        function parseGlyph(elem) {
+            const g = {};
+            const id = elem.id.split("-")[1];
+            g.id = id;
+
+            const viewBox = elem.getAttribute("viewBox");
+            const [x, y, width, height] = viewBox.split(" ");
+            g.x = parseFloat(x);
+            g.y = parseFloat(y);
+            g.width = parseFloat(width);
+            g.height = parseFloat(height);
+
+            return g;
+        }
+
+        function parseSlot(id) {
+            let s = { id: id }
+            let slot = document.getElementById(id);
+            if (!slot) {
+                console.error(`Slot ${id} not found`);
+                return null;
+            }
+            s.element = slot;
+            const transform = slot.getAttribute("transform");
+            if (!transform) {
+                console.error(`Transform not found for slot ${id}`);
+                return null;
+            }
+            const match = transform.match(/translate\(([-\d.]+)\s+([-\d.]+)\)/);
+            if (!match) {
+                console.error(`Transform ${transform} not found`);
+                return null;
+            }
+            s.tx = parseFloat(match[1]);
+            s.ty = parseFloat(match[2]);
+
+            const useEl = slot.querySelector("use");
+            if (!useEl) {
+                console.error('No <use> child found inside #slot-14');
+                return null;
+            }
+            s.useEl = useEl;
+
+            const useHref = useEl.getAttribute("href");
+            const useWidthAttr = useEl.getAttribute("width");
+            const useHeightAttr = useEl.getAttribute("height");
+
+            if (!useHref || !useWidthAttr || !useHeightAttr) {
+                console.error('Href or width or height attribute not found');
+                return null;
+            }
+
+            s.glyph = useHref.split("-")[1];
+            s.width = parseFloat(useWidthAttr);
+            s.height = parseFloat(useHeightAttr);
+
+            return s;
+        }
+
+        function scramble() {
+            for (let i = 0; i < SLOTS_COUNT; i++) {
+                const glyphName = glyphNames[Math.floor(Math.random() * glyphNames.length)];
+                placeGlyph(i, glyphName, true);
+            }
+        }
+
+        function resetScramble() {
+            startingGlyphs.forEach((glyph, index) => {
+                placeGlyph(index, glyph, false);
+            });
+        }
+
+        function scrambleSlot(slotIndex) {
+            const glyphName = glyphNames[Math.floor(Math.random() * glyphNames.length)];
+            placeGlyph(slotIndex, glyphName, true);
+        }
+
+        function resetSlot(slotIndex) {
+            placeGlyph(slotIndex, startingGlyphs[slotIndex], false);
+        }
+
+        function stopSlotAnimation(slotIndex) {
+            // Clear the timer to stop scrambling
+            if (slotHoverTimers[slotIndex]) {
+                window.clearInterval(slotHoverTimers[slotIndex]);
+                slotHoverTimers[slotIndex] = null;
+            }
+            // Clear touch timer if it exists
+            if (slotTouchTimers[slotIndex]) {
+                window.clearTimeout(slotTouchTimers[slotIndex]);
+                slotTouchTimers[slotIndex] = null;
+            }
+            // Reset to original glyph
+            resetSlot(slotIndex);
+        }
+
+        function setupSlotHoverHandlers() {
+            const svgEl = document.getElementById("animation");
+            let currentActiveSlot = null;
+
+            // Use mousemove to track which slot we're over
+            svgEl.addEventListener('mousemove', (e) => {
+                // Get mouse position in screen coordinates
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+
+                // Check which slot contains this point using getBoundingClientRect
+                let slotIndex = -1;
+                for (let i = 0; i < slots.length; i++) {
+                    const slot = slots[i];
+                    const rect = slot.element.getBoundingClientRect();
+
+                    // Check if mouse is within the slot's bounding rectangle
+                    if (mouseX >= rect.left && mouseX <= rect.right &&
+                        mouseY >= rect.top && mouseY <= rect.bottom) {
+                        slotIndex = i;
+                        break;
+                    }
+                }
+
+                if (slotIndex >= 0 && slotIndex < slots.length) {
+                    // Mouse is over a slot
+                    if (currentActiveSlot !== slotIndex) {
+                        // Stop previous slot if any
+                        if (currentActiveSlot !== null) {
+                            stopSlotAnimation(currentActiveSlot);
+                        }
+
+                        currentActiveSlot = slotIndex;
+
+                        // Clear any existing timer for this slot
+                        if (slotHoverTimers[slotIndex]) {
+                            window.clearInterval(slotHoverTimers[slotIndex]);
+                        }
+                        // Start scrambling immediately
+                        scrambleSlot(slotIndex);
+                        // Continue scrambling at scrambleInterval
+                        slotHoverTimers[slotIndex] = window.setInterval(() => {
+                            scrambleSlot(slotIndex);
+                        }, scrambleInterval);
+                    }
+                } else {
+                    // Mouse is not over any slot
+                    if (currentActiveSlot !== null) {
+                        stopSlotAnimation(currentActiveSlot);
+                        currentActiveSlot = null;
+                    }
+                }
+            });
+
+            // Also check when mouse leaves the SVG entirely
+            svgEl.addEventListener('mouseleave', () => {
+                if (currentActiveSlot !== null) {
+                    stopSlotAnimation(currentActiveSlot);
+                    currentActiveSlot = null;
+                }
+            });
+
+            // Cancel animations when mouse leaves the page/window
+            document.addEventListener('mouseleave', () => {
+                if (currentActiveSlot !== null) {
+                    stopSlotAnimation(currentActiveSlot);
+                    currentActiveSlot = null;
+                }
+            });
+
+            // Also handle mouseout on document to catch when leaving the window
+            document.addEventListener('mouseout', (e) => {
+                // Check if mouse is leaving the document (not just moving between elements)
+                if (!e.relatedTarget && !e.toElement) {
+                    if (currentActiveSlot !== null) {
+                        stopSlotAnimation(currentActiveSlot);
+                        currentActiveSlot = null;
+                    }
+                }
+            });
+
+            // Handle when window loses focus (e.g., user switches tabs)
+            window.addEventListener('blur', () => {
+                if (currentActiveSlot !== null) {
+                    stopSlotAnimation(currentActiveSlot);
+                    currentActiveSlot = null;
+                }
+            });
+
+            // Touch event handlers for mobile
+            let currentTouchSlot = null;
+
+            function getSlotFromTouch(touch) {
+                const touchX = touch.clientX;
+                const touchY = touch.clientY;
+
+                for (let i = 0; i < slots.length; i++) {
+                    const slot = slots[i];
+                    const rect = slot.element.getBoundingClientRect();
+
+                    if (touchX >= rect.left && touchX <= rect.right &&
+                        touchY >= rect.top && touchY <= rect.bottom) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+
+            svgEl.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // Prevent default touch behavior
+                const touch = e.touches[0];
+                const slotIndex = getSlotFromTouch(touch);
+
+                if (slotIndex >= 0 && slotIndex < slots.length) {
+                    // Stop any previous touch animation
+                    if (currentTouchSlot !== null && currentTouchSlot !== slotIndex) {
+                        stopSlotAnimation(currentTouchSlot);
+                    }
+
+                    currentTouchSlot = slotIndex;
+
+                    // Clear any existing timers for this slot
+                    if (slotHoverTimers[slotIndex]) {
+                        window.clearInterval(slotHoverTimers[slotIndex]);
+                        slotHoverTimers[slotIndex] = null;
+                    }
+                    if (slotTouchTimers[slotIndex]) {
+                        window.clearTimeout(slotTouchTimers[slotIndex]);
+                        slotTouchTimers[slotIndex] = null;
+                    }
+
+                    // Start scrambling immediately
+                    scrambleSlot(slotIndex);
+                    // Continue scrambling at scrambleInterval
+                    slotHoverTimers[slotIndex] = window.setInterval(() => {
+                        scrambleSlot(slotIndex);
+                    }, scrambleInterval);
+
+                    // Set timer to stop after touchStopInterval
+                    slotTouchTimers[slotIndex] = window.setTimeout(() => {
+                        stopSlotAnimation(slotIndex);
+                        currentTouchSlot = null;
+                    }, touchStopInterval);
+                }
+            });
+
+            svgEl.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                if (currentTouchSlot !== null) {
+                    stopSlotAnimation(currentTouchSlot);
+                    currentTouchSlot = null;
+                }
+            });
+
+            svgEl.addEventListener('touchcancel', (e) => {
+                e.preventDefault();
+                if (currentTouchSlot !== null) {
+                    stopSlotAnimation(currentTouchSlot);
+                    currentTouchSlot = null;
+                }
+            });
+
+            svgEl.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const slotIndex = getSlotFromTouch(touch);
+
+                // If touch moved to a different slot or off all slots
+                if (slotIndex !== currentTouchSlot) {
+                    if (currentTouchSlot !== null) {
+                        stopSlotAnimation(currentTouchSlot);
+                    }
+                    currentTouchSlot = null;
+
+                    // If moved to a new valid slot, start animation there
+                    if (slotIndex >= 0 && slotIndex < slots.length) {
+                        currentTouchSlot = slotIndex;
+
+                        // Clear any existing timers
+                        if (slotHoverTimers[slotIndex]) {
+                            window.clearInterval(slotHoverTimers[slotIndex]);
+                            slotHoverTimers[slotIndex] = null;
+                        }
+                        if (slotTouchTimers[slotIndex]) {
+                            window.clearTimeout(slotTouchTimers[slotIndex]);
+                            slotTouchTimers[slotIndex] = null;
+                        }
+
+                        // Start scrambling
+                        scrambleSlot(slotIndex);
+                        slotHoverTimers[slotIndex] = window.setInterval(() => {
+                            scrambleSlot(slotIndex);
+                        }, scrambleInterval);
+
+                        // Set timer to stop after touchStopInterval
+                        slotTouchTimers[slotIndex] = window.setTimeout(() => {
+                            stopSlotAnimation(slotIndex);
+                            currentTouchSlot = null;
+                        }, touchStopInterval);
+                    }
+                }
+            });
+        }
+
+        function placeGlyph(slotIndex, glyphName, scale) {
+            const glyph = glyphs[glyphName];
+            const slot = slots[slotIndex];
+            slot.useEl.setAttribute("href", `#g-${glyphName}`);
+
+            if (scale) {
+                let adjGlyphWidth = glyph.width * (slot.height / glyph.height);
+                let scaleX = slot.width > adjGlyphWidth ? adjGlyphWidth / slot.width : 1;
+                let posX = slot.width > adjGlyphWidth ? (slot.width - adjGlyphWidth) / 2 : 0;
+                slot.element.setAttribute("transform", `translate(${slot.tx + posX} ${slot.ty}) scale(${scaleX} 1)`);
+
+            } else {
+                slot.element.setAttribute("transform", `translate(${slot.tx} ${slot.ty})`);
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            init();
+        });
+    </script>
+
+</body>
+
+</html>
