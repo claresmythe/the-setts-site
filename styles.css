@@ -3,6 +3,7 @@
   src: url("/Knockout HTF49-Liteweight-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 .sr-only {
