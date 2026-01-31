@@ -27,7 +27,134 @@
     <meta name="twitter:description"
         content="Mildura's favourite local. Historic pub with lunch, dinner & bistro, beer garden, pool tables, live music, DJs & functions. Big screens, ramp access, entertainment for all occasions.">
     <meta name="twitter:image" content="https://www.thesetts.com.au/og-image.jpg">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --color-primary: #e63223;
+            --color-cream: #fcedd7;
+            --color-dark: #191818
+        }
+
+        @font-face {
+            font-family: "Knockout";
+            src: url("/Knockout HTF49-Liteweight-Regular.otf") format("opentype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap
+        }
+
+        .sr-only {
+            display: none
+        }
+
+        h1 {
+            margin-block: 0.67em;
+            font-size: 2em;
+            color: var(--color-primary)
+        }
+
+        h2 {
+            margin-block: 0.83em;
+            font-size: 1.5em;
+            color: var(--color-primary)
+        }
+
+        p {
+            color: var(--color-primary)
+        }
+
+        body {
+            margin: 0;
+            font-family: "Knockout", Arial, sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-cream)
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: var(--color-cream);
+            color: var(--color-primary);
+            border: none;
+            border-radius: 4px
+        }
+
+        button:hover {
+            background-color: var(--color-dark);
+            color: var(--color-cream)
+        }
+
+        button:active {
+            background-color: var(--color-dark);
+            color: var(--color-cream)
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-cream)
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 200px 35px;
+            max-width: 1060px
+        }
+
+        .logo {
+            display: block;
+            width: 100%;
+            height: auto
+        }
+
+        .logo g[id^="slot-"] {
+            pointer-events: all
+        }
+
+        .links {
+            margin-top: clamp(20px, 11.44vw, 121px);
+            font-size: clamp(20px, 4.72vw, 50px);
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: space-between;
+            width: 100%
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px
+        }
+
+        @media (max-width:540px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 100vh
+            }
+
+            .container {
+                padding: 20px 20px
+            }
+
+            .links {
+                margin-top: 60px;
+                font-size: 30px;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px
+            }
+        }
+    </style>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
